@@ -63,27 +63,27 @@
                             <nav class="header__menu--navigation">
                                 <ul class="header__menu--wrapper d-flex">
                                     <li class="header__menu--items">
-                                        <a class="header__menu--link" href="index.html#home">Home
+                                        <a class="header__menu--link" href="#">Home
                                         </a>
                                     </li>
                                     <li class="header__menu--items">
-                                        <a class="header__menu--link" href="index.html#about">About </a>
+                                        <a class="header__menu--link" href="#about">About </a>
                                     </li>
                                     <li class="header__menu--items">
-                                        <a class="header__menu--link" href="index.html#skills">Skills </a>
+                                        <a class="header__menu--link" href="#skills">Skills </a>
                                     </li>
 
                                     <li class="header__menu--items">
-                                        <a class="header__menu--link" href="index.html#blog">Blog
+                                        <a class="header__menu--link" href="#blog">Blog
                                         </a>
                                     </li>
                                     <li class="header__menu--items">
-                                        <a class="header__menu--link" href="index.html#contact">Contact </a>
+                                        <a class="header__menu--link" href="#contact">Contact </a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
-                        <button class="primary__btn download__btn">
+                        <button class="primary__btn download__btn" onclick="downloadResume()">
                             <svg class="download__btn--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -104,33 +104,28 @@
     <div class="offcanvas__header">
         <div class="offcanvas__inner">
             <div class="offcanvas__logo">
-                <a class="offcanvas__logo_link" href="index.html">
-                    <img src="assets/img/logo/nav-log.png" alt="Logo-img" width="158" height="36">
-                </a>
                 <button class="offcanvas__close--btn" data-offcanvas>close</button>
             </div>
             <nav class="offcanvas__menu">
                 <ul class="offcanvas__menu_ul">
                     <li class="offcanvas__menu_li">
-                        <a class="offcanvas__menu_item" href="index.html#home">Home</a>
+                        <a class="offcanvas__menu_item" href="#">Home</a>
                     </li>
                     <li class="offcanvas__menu_li">
-                        <a class="offcanvas__menu_item" href="index.html#about">About</a>
+                        <a class="offcanvas__menu_item" href="#about">About</a>
                     </li>
                     <li class="offcanvas__menu_li">
-                        <a class="offcanvas__menu_item" href="index.html#servives">Services</a>
+                        <a class="offcanvas__menu_item" href="#skills">Skills</a>
                     </li>
+
                     <li class="offcanvas__menu_li">
-                        <a class="offcanvas__menu_item" href="index.html#portfolio">Portfolio</a>
+                        <a class="offcanvas__menu_item" href="#blog">Blog</a>
                     </li>
-                    <li class="offcanvas__menu_li">
-                        <a class="offcanvas__menu_item" href="index.html#blog">Blog</a>
-                    </li>
-                    <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="index.html#contact">Contact</a>
+                    <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="#contact">Contact</a>
                     </li>
                 </ul>
                 <div class="offcanvas__download--btn">
-                    <button class="primary__btn download__btn">
+                    <button class="primary__btn download__btn" onclick="downloadResume()">
                         <svg class="download__btn--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -138,7 +133,7 @@
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        Download CV
+                        Download
                     </button>
                 </div>
             </nav>
@@ -343,7 +338,8 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <article class="blog__card">
-                                <a href="index.html#" data-bs-toggle="modal" data-bs-target="#blogModal">
+                                <a href="https://medium.com/@emmanueltsakpo5/real-time-applications-for-modern-web-development-a9ff6ae2c14a"
+                                    target="_blank">
                                     <div class="blog__card--thumbnail">
                                         <img src="assets/img/blog/blog1.png" alt="img">
                                     </div>
@@ -375,18 +371,26 @@
                             <div class="section__heading mb-50">
                                 <span class="section__heading--subtitle text__secondary">CONTACT</span>
                             </div>
-                            <form class="contact__form" action="index.html#">
+                            <form class="contact__form" id="contactForm">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-                                        <input class="contact__input--field" placeholder="Your name" type="text">
+                                        <input class="contact__input--field" placeholder="Your name" type="text"
+                                            id="name" required>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-                                        <input class="contact__input--field" placeholder="Your email" type="text">
+                                        <input class="contact__input--field" placeholder="Your email" type="text"
+                                            id="email" required>
                                     </div>
                                 </div>
-                                <textarea class="contact__textarea--field" placeholder="Message"></textarea>
+                                <textarea class="contact__textarea--field" placeholder="Message" id="message"
+                                    required></textarea>
                                 <button class="contact__button primary__btn">Send Request</button>
                             </form>
+                            <p style="
+                            margin-top: 45px;
+                            color: #ee5f38;
+                            display: none;
+                        " id="output"> Message sent ! Thanks for contacting. I will be get to you soon. </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -475,8 +479,13 @@
     <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
     <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
     <!-- Customscript js -->
     <script src="assets/js/script.js"></script>
+
+
 
 
 

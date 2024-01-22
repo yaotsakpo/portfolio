@@ -458,3 +458,48 @@ const newsletterPopup = function () {
   }
 };
 newsletterPopup();
+
+$(document).ready(function () {
+  $("#contactForm").submit(function (event) {
+    event.preventDefault();
+
+    let formData = {
+      body: {
+        name: $("#name").val(),
+        email: $("#email").val(),
+        message: $("#message").val(),
+      },
+    };
+
+    $.ajax({
+      url: "https://l64h5vw0wi.execute-api.us-east-1.amazonaws.com/v1/contactForm",
+      type: "POST",
+      cors: true,
+      secure: true,
+      contentType: "application/json",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      data: JSON.stringify(formData),
+      success: function (response) {
+        console.log("Success:", response);
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+      },
+    });
+
+    $("#contactForm").trigger("reset");
+
+    $("#output").show();
+
+    setTimeout(function () {
+      $("#output").hide();
+    }, 5000);
+  });
+});
+
+function downloadResume() {
+  var newTab = window.open("", "_blank");
+  newTab.location.href = "assets/resume/TSAKPOEmmanuelResume.pdf";
+}
